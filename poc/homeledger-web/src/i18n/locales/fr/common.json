@@ -1,0 +1,218 @@
+{
+  "appName": "HomeLedger",
+  "publicHome": {
+    "title": "HomeLedger",
+    "description": "Petit outil pour gérer les comptes de la famille.",
+    "loginButton": "Se connecter"
+  },
+  "auth": {
+    "title": "Authentification",
+    "description": "Vous allez être redirigé vers la page de connexion HomeLedger.",
+    "loginButton": "Se connecter avec HomeLedger",
+    "finalizing": "Finalisation de la connexion...",
+    "checkingSession": "Vérification de votre session..."
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "welcome": "Bienvenue {{name}}.",
+    "placeholder": "Ici on affichera plus tard les comptes, soldes, dernières opérations, etc."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "logout": "Déconnexion",
+    "languageFr": "Français",
+    "languageEn": "English",
+    "accounts": "Comptes",
+    "budgets": "Budgets",
+    "categories": "Catégories",
+    "tiers": "Tiers",
+    "settings": "Paramètres"
+  },
+  "accounts": {
+    "details": {
+      "untitled": "Compte sans nom",
+      "lastReconciliationDate": "Dernier rapprochement",
+      "reconciledBalance": "Solde rapproché",
+      "theoreticalBalance": "Solde théorique",
+      "budgetsTitle": "Budgets",
+      "budgetsSubtitle": "Budgets rattachés à ce compte",
+      "operationsTitle": "Opérations",
+      "reconciliationMode": "Mode rapprochement"
+    },
+    "actions": {
+      "reconcile": "Rapprocher",
+      "editAccount": "Paramètres"
+    }
+  },
+  "categories": {
+    "title": "Gestion des catégories",
+    "newCategory": "Nouvelle catégorie",
+    "searchPlaceholder": "Rechercher une catégorie...",
+    "iconPlaceholder": "Clé d'icône",
+    "columns": {
+      "name": "Nom",
+      "color": "Couleur",
+      "icon": "Icône"
+    },
+    "actions": {
+      "deleteConfirmTitle": "Supprimer la catégorie",
+      "deleteConfirmDescription": "Êtes-vous sûr de vouloir supprimer cette catégorie ?"
+    }
+  },
+  "tiers": {
+    "title": "Gestion des tiers",
+    "newTier": "Nouveau tiers",
+    "searchPlaceholder": "Rechercher un tiers...",
+    "columns": {
+      "name": "Nom",
+      "description": "Description",
+      "defaultCategory": "Catégorie par défaut"
+    },
+    "actions": {
+      "deleteConfirmTitle": "Supprimer le tiers",
+      "deleteConfirmDescription": "Êtes-vous sûr de vouloir supprimer ce tiers ?"
+    }
+  },
+  "budgets": {
+    "title": "Gestion des budgets",
+    "monthlyAmount": "Montant mensuel",
+    "currentBalance": "Budget actuel",
+    "lastUpdated": "Dernière échéance",
+    "lastUpdatedUnknown": "Aucune date",
+    "unnamed": "Budget sans nom",
+    "newBudget": "Nouveau budget",
+    "columns": {
+      "actions": "Actions",
+      "label": "Libellé",
+      "debitRemaining": "Débit restant",
+      "creditRemaining": "Crédit restant",
+      "currentBalance": "Solde"
+    },
+    "actions": {
+      "deleteConfirmTitle": "Supprimer",
+      "deleteConfirmDescription": "Supprime ce budget"
+    }
+  },
+  "operations": {
+    "columns": {
+      "date": "Date",
+      "dateTime": "Date/Heure",
+      "label": "Libellé",
+      "thirdParty": "Tiers",
+      "tier": "Tiers",
+      "category": "Catégorie",
+      "debit": "Débit",
+      "credit": "Crédit",
+      "method": "Mode",
+      "type": "Type",
+      "balance": "Solde",
+      "currentBalance": "Solde"
+    },
+    "type": {
+      "card": "Carte",
+      "transfer": "Virement",
+      "deposit": "Dépôt",
+      "cheque": "Chèque",
+      "direct_debit": "Prélèvement",
+      "other": "Autre"
+    },
+    "status": {
+      "pending": "Enregistré",
+      "posted": "Constaté",
+      "pointed": "Pointé",
+      "unknown": "Inconnu",
+      "short": {
+        "pending": "E",
+        "posted": "C",
+        "pointed": "P"
+      },
+      "legend": "E = Enregistré · C = Constaté · P = Pointé"
+    },
+    "newOperation": "Nouvelle opération",
+    "noAccountSelected": "Sélectionnez un compte pour voir les opérations",
+    "columnsConfig": {
+      "title": "Colonnes visibles",
+      "button": "Colonnes"
+    },
+    "actions": {
+      "filtersPlaceholder": "Filtres (bientôt)",
+      "more": "Plus",
+      "deleteConfirmTitle": "Supprimer l'opération",
+      "deleteConfirmDescription": "Êtes-vous sûr de vouloir supprimer cette opération ?",
+      "importFile": "Importer des opérations"
+    },
+    "contextMenu": {
+      "delete": "Supprimer",
+      "markAsPosted": "Marquer comme constaté",
+      "markAsPending": "Marquer comme enregistré",
+      "merge": "Fusionner les opérations"
+    }
+  },
+  "save": "Enregistrer",
+  "add": "Ajouter",
+  "label": "Libellé",
+  "requiredField": "Ce champ est obligatoire",
+  "account": "Compte",
+  "dateFormat": "DD/MM/YYYY",
+  "error": "Erreur",
+  "cancel": "Annuler",
+  "validate": "Valider",
+  "selectIcon": {
+    "title": "Choisir une icône",
+    "placeholder": "Icône",
+    "searchPlaceholder": "Rechercher une icône...",
+    "useCustomIcon": "Utiliser \"{{icon}}\" comme icône",
+    "selected": "Sélectionné"
+  },
+  "errors": {
+    "unexpectedServerResponse": "Une erreur innatendue s'est produite"
+  },
+  "reconciliation": {
+    "enterNewBalanceTitle": "Faire un rapprochement",
+    "enterNewBalanceMessage": "Quel est le solde du compte après rapprochement ?",
+    "newBalancePlaceholder": "Nouveau solde rapproché",
+    "reconciliationDateLabel": "Date du rapprochement",
+    "newBalanceLabel": "Nouveau solde",
+    "newBalance": "Nouveau solde",
+    "reconciledSum": "Opérations rapprochées",
+    "leftToReconcile": "Reste à rapprocher"
+  },
+  "common": {
+    "navigation": {
+      "unsavedChangesTitle": "Modifications non sauvegardées",
+      "unsavedChangesContent": "Vous avez des changements non sauvegardés. Voulez-vous vraiment quitter cette page ?",
+      "unsavedChangesLeave": "Quitter sans sauvegarder",
+      "unsavedChangesStay": "Rester sur la page",
+      "unsavedChangesBrowser": "Vous avez des modifications non sauvegardées."
+    }
+  },
+  "import": {
+    "title": "Importer des opérations",
+    "importButton": "Importer",
+    "dropzone": {
+      "text": "Cliquez ou déposez un fichier ici",
+      "hint": "Formats acceptés : Excel (.xlsx, .xls) ou CSV (.csv)"
+    },
+    "mapping": {
+      "ignore": "Ignorer",
+      "date": "Date",
+      "description": "Description",
+      "credit": "Crédit",
+      "debit": "Débit",
+      "signed": "Montant signé"
+    },
+    "validation": {
+      "title": "Mapping incomplet",
+      "missingDate": "Veuillez sélectionner une colonne pour la date",
+      "missingDescription": "Veuillez sélectionner une colonne pour la description",
+      "missingAmount": "Veuillez sélectionner une colonne pour le montant (crédit/débit ou montant signé)",
+      "conflictingAmount": "Vous ne pouvez pas utiliser crédit/débit ET montant signé en même temps"
+    },
+    "errors": {
+      "emptyFile": "Le fichier est vide ou ne contient pas de données",
+      "readError": "Erreur lors de la lecture du fichier"
+    },
+    "detectedDateFormat": "Format de date détecté : {{format}}",
+    "previewHint": "Aperçu des premières lignes. Sélectionnez le mapping pour chaque colonne."
+  }
+}

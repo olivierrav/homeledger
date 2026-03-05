@@ -1,0 +1,194 @@
+{
+  "info": {
+    "_postman_id": "a4c374de-0000-0000-0000-budgetsapi2",
+    "name": "HomeLedger API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "API HomeLedger structurée par domaines (Account, Budget, Operation, Tiers, Admin, Health...) avec variables Postman. Ne pas oublier d'ajouter l'Authorization et de remplir les variables d'environnement nécessaires."
+  },
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "addTokenTo",
+        "value": "header",
+        "type": "text"
+      },
+      {
+        "key": "tokenName",
+        "value": "HomeLedgerToken",
+        "type": "text"
+      },
+      {
+        "key": "grant_type",
+        "value": "authorization_code",
+        "type": "text"
+      },
+      {
+        "key": "authUrl",
+        "value": "{{keycloakUrl}}/realms/homeledger/protocol/openid-connect/auth",
+        "type": "text"
+      },
+      {
+        "key": "accessTokenUrl",
+        "value": "{{keycloakUrl}}/realms/homeledger/protocol/openid-connect/token",
+        "type": "text"
+      },
+      {
+        "key": "clientId",
+        "value": "{{keycloakClientId}}",
+        "type": "text"
+      },
+      {
+        "key": "clientSecret",
+        "value": "{{keycloakSecret}}",
+        "type": "text"
+      },
+      {
+        "key": "scope",
+        "value": "openid profile email",
+        "type": "text"
+      },
+      {
+        "key": "redirect_uri",
+        "value": "https://oauth.pstmn.io/v1/callback",
+        "type": "text"
+      }
+    ]
+  },
+  "variable": [
+    { "key": "endpoint", "value": "https://yourapi.domain/api" },
+    { "key": "accountId", "value": "<ACCOUNT_ID>" },
+    { "key": "budgetId", "value": "<BUDGET_ID>" },
+    { "key": "operationId", "value": "<OPERATION_ID>" },
+    { "key": "tierId", "value": "<TIER_ID>" },
+    { "key": "categoryId", "value": "<CATEGORY_ID>" }
+  ],
+  "item": [
+    {
+      "name": "Budget",
+      "item": [
+        { "name": "Get all budgets", "request": { "method": "GET", "header": [], "url": { "raw": "{{endpoint}}/v1/me/budgets", "host": [ "{{endpoint}}" ], "path": [ "v1","me","budgets" ] } } },
+        { "name": "Create budget", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"accountId\": \"{{accountId}}\",\n  \"label\": \"Vacances\",\n  \"color\": \"#0099ff\",\n  \"iconKey\": \"suitcase\",\n  \"monthlyAmount\": 1000,\n  \"comment\": \"Budget vacances\"\n}" }, "url": { "raw": "{{endpoint}}/v1/me/budgets", "host": [ "{{endpoint}}" ], "path": [ "v1","me","budgets" ] } } },
+        { "name": "Update all budgets", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "[\n  {\n    \"id\": \"{{budgetId}}\",\n    \"label\": \"Budget modifié\",\n    \"iconKey\": \"star\",\n    \"color\": \"#0099ff\",\n    \"monthlyAmount\": 800,\n    \"comment\": \"Commentaire\"\n  },\n  {\n    \"accountId\": \"{{accountId}}\",\n    \"label\": \"Nouveau budget\",\n    \"iconKey\": \"cart\",\n    \"color\": \"#10c980\",\n    \"monthlyAmount\": 300\n  }\n]" }, "url": { "raw": "{{endpoint}}/v1/me/budgets", "host": [ "{{endpoint}}" ], "path": [ "v1","me","budgets" ] } } },
+        { "name": "List budgets by account", "request": { "method": "GET", "header": [], "url": { "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}/budgets", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "accounts", "{{accountId}}", "budgets" ] } } },
+        { "name": "Create budget on account", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"label\": \"Alimentation\",\n  \"iconKey\": \"cart\",\n  \"color\": \"#10c980\",\n  \"monthlyAmount\": 400\n}" }, "url": { "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}/budgets", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "accounts", "{{accountId}}", "budgets" ] } } },
+        { "name": "Update budgets on account", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "[\n  {\n    \"id\": \"{{budgetId}}\",\n    \"label\": \"Alimentation modifié\",\n    \"iconKey\": \"cart\",\n    \"color\": \"#10c980\",\n    \"monthlyAmount\": 500,\n    \"comment\": \"Budget courses\"\n  },\n  {\n    \"label\": \"Nouveau budget\",\n    \"iconKey\": \"star\",\n    \"color\": \"#ff0000\",\n    \"monthlyAmount\": 200\n  }\n]" }, "url": { "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}/budgets", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "accounts", "{{accountId}}", "budgets" ] } } },
+        { "name": "Get budget by account", "request": { "method": "GET", "header": [], "url": { "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}/budgets/{{budgetId}}", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "accounts", "{{accountId}}", "budgets", "{{budgetId}}" ] } } },
+        { "name": "Update budget", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"label\": \"Nouveau label\",\n  \"monthlyAmount\": 200\n}" }, "url": { "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}/budgets/{{budgetId}}", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "accounts", "{{accountId}}", "budgets", "{{budgetId}}" ] } } },
+        { "name": "Delete budget", "request": { "method": "DELETE", "header": [], "url": { "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}/budgets/{{budgetId}}", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "accounts", "{{accountId}}", "budgets", "{{budgetId}}" ] } } }
+      ]
+    },
+    {
+      "name": "Account",
+      "item": [
+        { "name": "List accounts", "request": { "method": "GET", "header": [], "url": { "raw": "{{endpoint}}/v1/me/accounts", "host": [ "{{endpoint}}" ], "path": [ "v1","me","accounts" ] } } },
+        { "name": "Create account", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Compte courant\",\n  \"type\": \"current\",\n  \"initialBalance\": 1000\n}" }, "url": { "raw": "{{endpoint}}/v1/me/accounts", "host": [ "{{endpoint}}" ], "path": [ "v1","me","accounts" ] } } },
+        { "name": "Get account details", "request": { "method": "GET", "header": [], "url": { "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}", "host": [ "{{endpoint}}" ], "path": [ "v1","me","accounts","{{accountId}}" ] } } },
+        { "name": "Update account", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Nouveau nom\"\n}" }, "url": { "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}", "host": [ "{{endpoint}}" ], "path": [ "v1","me","accounts","{{accountId}}" ] } } },
+        { "name": "Delete account", "request": { "method": "DELETE", "header": [], "url": { "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}", "host": [ "{{endpoint}}" ], "path": [ "v1","me","accounts","{{accountId}}" ] } } },
+        { "name": "Get reconciliation status", "request": { "method": "GET", "header": [], "url": { "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}/reconciliation-status", "host": [ "{{endpoint}}" ], "path": [ "v1","me","accounts","{{accountId}}","reconciliation-status" ] } } }
+      ]
+    },
+    {
+      "name": "Operation",
+      "item": [
+        { "name": "List operations of account", "request": { "method": "GET", "header": [], "url": { "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}/operations", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "accounts", "{{accountId}}", "operations" ] } } },
+        {
+          "name": "Create operation on account",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tierId\": \"{{tierId}}\",\n  \"dateTime\": \"2024-06-06T10:00:00Z\",\n  \"amount\": -100.50,\n  \"description\": \"Courses\",\n  \"budgetId\": \"{{budgetId}}\",\n  \"categoryId\": \"{{categoryId}}\",\n  \"linkedAccountId\": null,\n  \"type\": \"card\",\n  \"imported\": false\n}"
+            },
+            "url": {
+              "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}/operations",
+              "host": ["{{endpoint}}"],
+              "path": ["v1", "me", "accounts", "{{accountId}}", "operations"]
+            }
+          }
+        },
+        {
+          "name": "Update operation",
+          "request": {
+            "method": "PUT",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Achat modifié\",\n  \"amount\": -125.75,\n  \"imported\": true\n}"
+            },
+            "url": {
+              "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}/operations/{{operationId}}",
+              "host": ["{{endpoint}}"],
+              "path": ["v1", "me", "accounts", "{{accountId}}", "operations", "{{operationId}}"]
+            }
+          }
+        },
+        {
+          "name": "Delete operation",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}/operations/{{operationId}}",
+              "host": ["{{endpoint}}"],
+              "path": ["v1", "me", "accounts", "{{accountId}}", "operations", "{{operationId}}"]
+            }
+          }
+        },
+        { "name": "Point an operation", "request": { "method": "POST", "header": [], "url": { "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}/operations/{{operationId}}/point", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "accounts", "{{accountId}}", "operations", "{{operationId}}", "point" ] } } },
+        {
+          "name": "Bulk create operations",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"dateTime\": \"2024-06-01T10:00:00Z\",\n    \"amount\": -50.00,\n    \"description\": \"Courses supermarché\",\n    \"type\": \"card\",\n    \"imported\": true\n  },\n  {\n    \"dateTime\": \"2024-06-02T14:30:00Z\",\n    \"amount\": -25.50,\n    \"description\": \"Restaurant\",\n    \"type\": \"card\",\n    \"imported\": true\n  },\n  {\n    \"dateTime\": \"2024-06-03T09:00:00Z\",\n    \"amount\": 1500.00,\n    \"description\": \"Salaire\",\n    \"type\": \"transfer\",\n    \"imported\": true\n  }\n]"
+            },
+            "url": {
+              "raw": "{{endpoint}}/v1/me/accounts/{{accountId}}/operations/bulk",
+              "host": ["{{endpoint}}"],
+              "path": ["v1", "me", "accounts", "{{accountId}}", "operations", "bulk"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "item": [
+        { "name": "List categories", "request": { "method": "GET", "header": [], "url": { "raw": "{{endpoint}}/v1/me/categories", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "categories" ] } } },
+        { "name": "Create category", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Alimentation\",\n  \"color\": \"#10c980\",\n  \"iconKey\": \"cart\"\n}" }, "url": { "raw": "{{endpoint}}/v1/me/categories", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "categories" ] } } },
+        { "name": "Get category", "request": { "method": "GET", "header": [], "url": { "raw": "{{endpoint}}/v1/me/categories/{{categoryId}}", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "categories", "{{categoryId}}" ] } } },
+        { "name": "Update category", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Alimentation & Courses\",\n  \"color\": \"#ff9900\",\n  \"iconKey\": \"shopping-cart\"\n}" }, "url": { "raw": "{{endpoint}}/v1/me/categories/{{categoryId}}", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "categories", "{{categoryId}}" ] } } },
+        { "name": "Delete category", "request": { "method": "DELETE", "header": [], "url": { "raw": "{{endpoint}}/v1/me/categories/{{categoryId}}", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "categories", "{{categoryId}}" ] } } }
+      ]
+    },
+    {
+      "name": "Tiers",
+      "item": [
+        { "name": "List tiers", "request": { "method": "GET", "header": [], "url": { "raw": "{{endpoint}}/v1/me/tiers", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "tiers" ] } } },
+        { "name": "Create tier", "request": { "method": "POST", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Carrefour\",\n  \"description\": \"Supermarché\",\n  \"categoryId\": \"{{categoryId}}\"\n}" }, "url": { "raw": "{{endpoint}}/v1/me/tiers", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "tiers" ] } } },
+        { "name": "Get tier", "request": { "method": "GET", "header": [], "url": { "raw": "{{endpoint}}/v1/me/tiers/{{tierId}}", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "tiers", "{{tierId}}" ] } } },
+        { "name": "Update tier", "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"name\": \"Carrefour Market\",\n  \"description\": \"Supermarché de proximité\",\n  \"categoryId\": \"{{categoryId}}\"\n}" }, "url": { "raw": "{{endpoint}}/v1/me/tiers/{{tierId}}", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "tiers", "{{tierId}}" ] } } },
+        { "name": "Delete tier", "request": { "method": "DELETE", "header": [], "url": { "raw": "{{endpoint}}/v1/me/tiers/{{tierId}}", "host": [ "{{endpoint}}" ], "path": [ "v1", "me", "tiers", "{{tierId}}" ] } } }
+      ]
+    },
+    {
+      "name": "Admin",
+      "item": [
+        { "name": "Get admin", "request": { "method": "GET", "header": [], "url": { "raw": "{{endpoint}}/v1/admin", "host": [ "{{endpoint}}" ], "path": [ "v1", "admin" ] } } }
+      ]
+    },
+    {
+      "name": "Health",
+      "item": [
+        { "name": "Health check", "request": { "method": "GET", "header": [], "url": { "raw": "{{endpoint}}/v1/health", "host": [ "{{endpoint}}" ], "path": [ "v1", "health" ] } } },
+        { "name": "Debug token", "request": { "method": "GET", "header": [], "url": { "raw": "{{endpoint}}/v1/debug-token", "host": [ "{{endpoint}}" ], "path": [ "v1", "debug-token" ] } } }
+      ]
+    }
+  ]
+}
+

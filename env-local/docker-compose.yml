@@ -1,0 +1,41 @@
+# FILENAME: env-local/docker-compose.yml
+version: "3.9"
+
+services:
+    postgres:
+        image: postgres:16
+        container_name: homeledger-db
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: homeledger_db
+        ports:
+            - "5432:5432"
+        volumes:
+            - ./data/postgres:/var/lib/postgresql/data
+            - ./postgres-init:/docker-entrypoint-initdb.d:ro
+        restart: unless-stopped
+
+    keycloak:
+        image: quay.io/keycloak/keycloak:latest
+        container_name: keycloak
+        command:
+            - start-dev
+            - --proxy-headers
+            - xforwarded
+        environment:
+            KEYCLOAK_ADMIN: admin
+            KEYCLOAK_ADMIN_PASSWORD: admin
+            KC_HTTP_ENABLED: "true"
+            KC_PROXY: "edge"
+            KC_HOSTNAME: "auth.mac-perso-ora.test"
+            KC_HOSTNAME_URL: "https://auth.mac-perso-ora.test"
+            KC_HOSTNAME_STRICT: "true"
+            KC_HOSTNAME_STRICT_HTTPS: "true"
+        ports:
+            - "8080:8080"
+        volumes:
+            - ./data/keycloak:/opt/keycloak/data
+        depends_on:
+            - postgres
+        restart: unless-stopped

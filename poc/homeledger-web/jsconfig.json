@@ -1,0 +1,41 @@
+// FILENAME: jsconfig.json
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+            "@auth/*": [
+                "src/auth/*"
+            ],
+            "@layouts/*": [
+                "src/layouts/*"
+            ],
+            "@views/*": [
+                "src/views/*"
+            ],
+            "@helpers/*": [
+                "src/helpers/*"
+            ],
+            "@assets/*": [
+                "src/assets/*"
+            ],
+            "@components/*": [
+                "src/components/*"
+            ],
+            "@context/*": [
+                "src/context/*"
+            ],
+            "@hooks/*": [
+                "src/hooks/*"
+            ],
+            "@logger": [
+                "src/utils/logger.js"
+            ]
+        },
+        "checkJs": false,
+        "jsx": "react-jsx",
+        "moduleResolution": "bundler"
+    },
+    "include": [
+        "src"
+    ]
+}

@@ -1,0 +1,14 @@
+# FILENAME: .prettierignore
+node_modules/
+build/
+dist/
+reports/
+assets/**
+
+# Coverage
+coverage/
+
+# Lockfiles
+package-lock.json
+pnpm-lock.yaml
+yarn.lock

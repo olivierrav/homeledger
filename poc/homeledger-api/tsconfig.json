@@ -1,0 +1,93 @@
+// FILENAME: tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "types": [
+      "node",
+      "jest"
+    ],
+    "rootDir": "src",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "baseUrl": "src",
+    "paths": {
+      "@config/*": [
+        "config/*"
+      ],
+      "@config": [
+        "config/index"
+      ],
+      "@log/*": [
+        "log/*"
+      ],
+      "@log": [
+        "log/index"
+      ],
+      "@db/*": [
+        "db/*"
+      ],
+      "@db": [
+        "db/index"
+      ],
+      "@services/*": [
+        "services/*"
+      ],
+      "@services": [
+        "services/index"
+      ],
+      "@api/*": [
+        "api-routes/*"
+      ],
+      "@api": [
+        "api-routes/index"
+      ],
+      "@helpers/*": [
+        "helpers/*"
+      ],
+      "@helpers": [
+        "helpers/index"
+      ],
+      "@middlewares/*": [
+        "middlewares/*"
+      ],
+      "@middlewares": [
+        "middlewares/index"
+      ],
+      "@security/*": [
+        "security/*"
+      ],
+      "@security": [
+        "security/index"
+      ],
+      "@jobs/*": [
+        "jobs/*"
+      ],
+      "@jobs": [
+        "jobs/index"
+      ],
+      "@connectors/*": [
+        "connectors/*"
+      ],
+      "@connectors": [
+        "connectors/index"
+      ],
+      "@server/*": [
+        "server/*"
+      ],
+      "@server": [
+        "server/index"
+      ]
+    }
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "tests"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "common": {
+    "appName": "HomeLedger",
+    "welcome": "Bienvenue",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "create": "Créer",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "export": "Exporter",
+    "import": "Importer"
+  },
+  "navigation": {
+    "dashboard": "Tableau de bord",
+    "transactions": "Transactions",
+    "accounts": "Comptes",
+    "budgets": "Budgets",
+    "reports": "Rapports",
+    "settings": "Paramètres"
+  },
+  "auth": {
+    "login": "Se connecter",
+    "logout": "Se déconnecter",
+    "register": "S'inscrire",
+    "email": "Email",
+    "password": "Mot de passe",
+    "forgotPassword": "Mot de passe oublié ?",
+    "noAccount": "Pas encore de compte ?",
+    "hasAccount": "Vous avez déjà un compte ?"
+  },
+  "transactions": {
+    "title": "Transactions",
+    "add": "Ajouter une transaction",
+    "edit": "Modifier la transaction",
+    "delete": "Supprimer la transaction",
+    "amount": "Montant",
+    "date": "Date",
+    "category": "Catégorie",
+    "description": "Description",
+    "type": "Type",
+    "income": "Revenu",
+    "expense": "Dépense"
+  }
+}

@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --hostname mac-perso-ora.test --experimental-https --experimental-https-key certificates/mac-perso-ora.test-key.pem --experimental-https-cert certificates/mac-perso-ora.test.pem",
+    "dev:certs": "bash scripts/generate-certs.sh",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

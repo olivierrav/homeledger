@@ -50,6 +50,33 @@
     "languageEn": "English"
   },
   "accounts": {
+    "title": "Comptes",
+    "createTitle": "Créer un compte",
+    "editTitle": "Modifier le compte",
+    "noAccounts": "Aucun compte pour le moment. Créez votre premier compte pour commencer.",
+    "fields": {
+      "name": "Nom du compte",
+      "bankName": "Nom de la banque",
+      "accountNumber": "Numéro de compte",
+      "type": "Type de compte",
+      "interestRate": "Taux d'intérêt (%)",
+      "initialBalance": "Solde initial"
+    },
+    "types": {
+      "current": "Compte courant",
+      "savings": "Compte épargne"
+    },
+    "placeholders": {
+      "name": "ex. Compte courant principal",
+      "bankName": "ex. Ma Banque",
+      "accountNumber": "ex. FR76 ...",
+      "interestRate": "ex. 2.5"
+    },
+    "validation": {
+      "nameRequired": "Le nom du compte est obligatoire",
+      "typeRequired": "Le type de compte est obligatoire",
+      "initialBalanceRequired": "Le solde initial est obligatoire"
+    },
     "details": {
       "untitled": "Compte sans nom",
       "lastReconciliationDate": "Dernier rapprochement",
@@ -60,8 +87,11 @@
       "operationsTitle": "Opérations"
     },
     "actions": {
+      "create": "Créer le compte",
       "reconcile": "Rapprocher",
-      "editAccount": "Paramètres"
+      "editAccount": "Paramètres",
+      "deleteConfirmTitle": "Supprimer le compte",
+      "deleteConfirmDescription": "Êtes-vous sûr de vouloir supprimer ce compte ? Cette action est irréversible."
     }
   },
   "categories": {

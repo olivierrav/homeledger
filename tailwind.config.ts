@@ -45,17 +45,34 @@ const config: Config = {
         },
         success: "hsl(var(--success))",
         warning: "hsl(var(--warning))",
+        sidebar: {
+          DEFAULT: "hsl(var(--sidebar))",
+          foreground: "hsl(var(--sidebar-foreground))",
+          primary: "hsl(var(--sidebar-primary))",
+          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+          accent: "hsl(var(--sidebar-accent))",
+          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+          border: "hsl(var(--sidebar-border))",
+          ring: "hsl(var(--sidebar-ring))",
+        },
+        chart: {
+          "1": "hsl(var(--chart-1))",
+          "2": "hsl(var(--chart-2))",
+          "3": "hsl(var(--chart-3))",
+          "4": "hsl(var(--chart-4))",
+          "5": "hsl(var(--chart-5))",
+        },
       },
       borderRadius: {
-        lg: "var(--radius)", // 8px
-        md: "calc(var(--radius) - 2px)", // 6px
-        sm: "calc(var(--radius) - 4px)", // 4px
-        xl: "0.75rem", // 12px - borderRadiusLG
-        "2xl": "1rem", // 16px - Card radius
-        full: "9999px", // Pill buttons
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+        xl: "0.75rem",
+        "2xl": "1rem",
+        full: "9999px",
       },
       fontSize: {
-        base: ["0.875rem", { lineHeight: "1.5" }], // 14px
+        base: ["0.875rem", { lineHeight: "1.5" }],
       },
       boxShadow: {
         card: "0 10px 30px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04)",

@@ -6,96 +6,101 @@
 
 @layer base {
   :root {
-    /* HomeLedger Light Theme - Adapted from Ant Design POC */
-    --background: oklch(1 0 0); /* #F5F7FA */
-    --foreground: oklch(0.145 0 0); /* #1F2933 */
+    /* HomeLedger Light Theme */
+    --background: 214 25% 96%; /* #F5F7FA */
+    --foreground: 207 28% 16%; /* #1F2933 */
 
-    --card: oklch(1 0 0); /* #FFFFFF */
-    --card-foreground: oklch(0.145 0 0);
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 207 28% 16%;
 
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
+    --popover: 0 0% 100%;
+    --popover-foreground: 207 28% 16%;
 
-    --primary: oklch(0.205 0 0); /* #1A5274 */
-    --primary-foreground: oklch(0.985 0 0);
+    --primary: 200 63% 28%; /* #1A5274 */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: oklch(0.97 0 0); /* #E6EEF4 - primarySoft */
-    --secondary-foreground: oklch(0.205 0 0);
+    --secondary: 207 42% 93%; /* #E6EEF4 */
+    --secondary-foreground: 200 63% 28%;
 
-    --muted: oklch(0.97 0 0); /* #F0F3F9 */
-    --muted-foreground: oklch(0.556 0 0); /* #6B7380 */
+    --muted: 218 24% 95%; /* #F0F3F9 */
+    --muted-foreground: 218 8% 46%; /* #6B7380 */
 
-    --accent: oklch(0.97 0 0); /* #FF7A45 */
-    --accent-foreground: oklch(0.205 0 0);
+    --accent: 18 100% 64%; /* #FF7A45 */
+    --accent-foreground: 0 0% 100%;
 
-    --success: 162 80% 38%; /* #1FA37C */
-    --warning: 38 94% 48%; /* #F59E0B */
-    --destructive: oklch(0.58 0.22 27); /* #E53935 */
+    --success: 162 67% 38%; /* #1FA37C */
+    --warning: 38 94% 50%; /* #F59E0B */
+    --destructive: 1 76% 55%; /* #E53935 */
     --destructive-foreground: 0 0% 100%;
 
-    --border: oklch(0.922 0 0); /* #E0E4EC */
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
+    --border: 218 20% 90%; /* #E0E4EC */
+    --input: 218 20% 90%;
+    --ring: 200 63% 28%; /* same as primary */
 
-    --radius: 0.625rem; /* 8px base */ --chart-1: oklch(0.809 0.105 251.813); --chart-2: oklch(0.623 0.214 259.815); --chart-3: oklch(0.546 0.245 262.881); --chart-4: oklch(0.488 0.243 264.376); --chart-5: oklch(0.424 0.199 265.638); --sidebar: oklch(0.985 0 0); --sidebar-foreground: oklch(0.145 0 0); --sidebar-primary: oklch(0.205 0 0); --sidebar-primary-foreground: oklch(0.985 0 0); --sidebar-accent: oklch(0.97 0 0); --sidebar-accent-foreground: oklch(0.205 0 0); --sidebar-border: oklch(0.922 0 0); --sidebar-ring: oklch(0.708 0 0);
+    --radius: 0.5rem;
+
+    --chart-1: 200 63% 28%;
+    --chart-2: 18 100% 64%;
+    --chart-3: 162 67% 38%;
+    --chart-4: 38 94% 50%;
+    --chart-5: 1 76% 55%;
+
+    --sidebar: 210 29% 14%; /* #142534 - dark sider */
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 18 100% 64%; /* accent orange */
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 29% 20%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 210 29% 22%;
+    --sidebar-ring: 18 100% 64%;
   }
 
   .dark {
-    /* HomeLedger Dark Theme - Adapted from Ant Design POC */
-    --background: oklch(0.145 0 0); /* #050712 */
-    --foreground: oklch(0.985 0 0); /* #E5E7EB */
+    /* HomeLedger Dark Theme */
+    --background: 230 60% 3%; /* #050712 */
+    --foreground: 218 11% 91%; /* #E5E7EB */
 
-    --card: oklch(0.205 0 0); /* #111827 */
-    --card-foreground: oklch(0.985 0 0);
+    --card: 220 33% 11%; /* #111827 */
+    --card-foreground: 218 11% 91%;
 
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
+    --popover: 220 33% 11%;
+    --popover-foreground: 218 11% 91%;
 
-    --primary: oklch(0.87 0.00 0); /* #FF7A45 - accent becomes primary in dark */
-    --primary-foreground: oklch(0.205 0 0); /* #0B1120 */
+    --primary: 18 100% 64%; /* #FF7A45 - accent becomes primary */
+    --primary-foreground: 222 47% 10%; /* #0B1120 */
 
-    --secondary: oklch(0.269 0 0); /* #111827 */
-    --secondary-foreground: oklch(0.985 0 0);
+    --secondary: 220 33% 11%; /* #111827 */
+    --secondary-foreground: 218 11% 91%;
 
-    --muted: oklch(0.269 0 0); /* #1F2937 */
-    --muted-foreground: oklch(0.708 0 0); /* #9CA3AF */
+    --muted: 217 33% 17%; /* #1F2937 */
+    --muted-foreground: 218 11% 65%; /* #9CA3AF */
 
-    --accent: oklch(0.371 0 0); /* #F97316 - segmented selected */
-    --accent-foreground: oklch(0.985 0 0);
+    --accent: 24 94% 53%; /* #F97316 */
+    --accent-foreground: 222 47% 10%;
 
-    --success: 178 78% 51%; /* #36CFC9 */
+    --success: 178 56% 51%; /* #36CFC9 */
     --warning: 43 96% 56%; /* #FBBF24 */
-    --destructive: oklch(0.704 0.191 22.216); /* #F87171 */
+    --destructive: 0 93% 71%; /* #F87171 */
     --destructive-foreground: 220 13% 91%;
 
-    --border: oklch(1 0 0 / 10%); /* #1F2937 */
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.809 0.105 251.813);
-    --chart-2: oklch(0.623 0.214 259.815);
-    --chart-3: oklch(0.546 0.245 262.881);
-    --chart-4: oklch(0.488 0.243 264.376);
-    --chart-5: oklch(0.424 0.199 265.638);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
-  }
-  .theme {
-    --font-sans: var(--font-sans);
-  }
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
+    --border: 217 33% 17%; /* #1F2937 */
+    --input: 217 33% 20%;
+    --ring: 18 100% 64%;
+
+    --chart-1: 18 100% 64%;
+    --chart-2: 178 56% 51%;
+    --chart-3: 43 96% 56%;
+    --chart-4: 0 93% 71%;
+    --chart-5: 200 63% 28%;
+
+    --sidebar: 222 47% 3%; /* #020617 */
+    --sidebar-foreground: 218 11% 91%;
+    --sidebar-primary: 18 100% 64%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 33% 11%;
+    --sidebar-accent-foreground: 218 11% 91%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 18 100% 64%;
   }
 }
 
@@ -110,13 +115,11 @@
 
 /* HomeLedger Custom Utilities */
 @layer utilities {
-  /* Compact table styles (matching Ant Design POC) */
   .table-compact td,
   .table-compact th {
     @apply py-1.5 px-2;
   }
 
-  /* Card shadows matching POC */
   .card-shadow {
     box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
   }

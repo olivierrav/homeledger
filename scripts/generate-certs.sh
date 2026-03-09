@@ -10,6 +10,9 @@ CERT_DIR="certificates"
 
 mkdir -p "$CERT_DIR"
 
+# Copy mkcert root CA (needed for Node.js to trust local certs)
+cp "$(mkcert -CAROOT)/rootCA.pem" "$CERT_DIR/mkcert-rootCA.pem"
+
 # App certificate (Next.js dev server)
 mkcert -key-file "$CERT_DIR/$DOMAIN-key.pem" -cert-file "$CERT_DIR/$DOMAIN.pem" "$DOMAIN"
 

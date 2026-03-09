@@ -1,5 +1,4 @@
 # FILENAME: env-local/docker-compose.yml
-version: "3.9"
 
 services:
     postgres:
@@ -21,21 +20,19 @@ services:
         container_name: keycloak
         command:
             - start-dev
-            - --proxy-headers
-            - xforwarded
         environment:
             KEYCLOAK_ADMIN: admin
             KEYCLOAK_ADMIN_PASSWORD: admin
-            KC_HTTP_ENABLED: "true"
-            KC_PROXY: "edge"
             KC_HOSTNAME: "auth.mac-perso-ora.test"
-            KC_HOSTNAME_URL: "https://auth.mac-perso-ora.test"
             KC_HOSTNAME_STRICT: "true"
-            KC_HOSTNAME_STRICT_HTTPS: "true"
+            KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/certs/auth.mac-perso-ora.test.pem
+            KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/auth.mac-perso-ora.test-key.pem
+            KC_HTTP_ENABLED: "false"
         ports:
-            - "8080:8080"
+            - "8443:8443"
         volumes:
             - ./data/keycloak:/opt/keycloak/data
+            - ../certificates:/opt/keycloak/certs:ro
         depends_on:
             - postgres
         restart: unless-stopped

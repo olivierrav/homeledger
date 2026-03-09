@@ -8,8 +8,9 @@ Modern personal finance manager built with Next.js 15, React Server Components, 
 - **React**: Server Components + React Compiler
 - **Styling**: Tailwind CSS + shadcn/ui
 - **Database**: PostgreSQL + Drizzle ORM
-- **Auth**: Auth.js v5 + Keycloak
+- **Auth**: Auth.js v5 + Keycloak (OIDC)
 - **Validation**: Zod
+- **i18n**: next-intl (EN/FR)
 - **Logging**: Pino
 - **Testing**: Vitest + Testing Library
 
@@ -19,74 +20,117 @@ Modern personal finance manager built with Next.js 15, React Server Components, 
 
 - Node.js 20+
 - Docker & Docker Compose
+- [mkcert](https://github.com/FiloSottile/mkcert) (`brew install mkcert`)
+
+### Local domains
+
+The project uses custom local domains. Add these to your `/etc/hosts`:
+
+```
+127.0.0.1   mac-perso-ora.test
+127.0.0.1   auth.mac-perso-ora.test
+```
+
+| Service    | URL                                    |
+|------------|----------------------------------------|
+| App        | `https://mac-perso-ora.test:3000`      |
+| Keycloak   | `https://auth.mac-perso-ora.test:8443` |
+| PostgreSQL | `localhost:5432`                       |
 
 ### Installation
 
-1. Clone and install dependencies:
+1. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Copy environment variables:
+2. Install mkcert CA and generate certificates:
 ```bash
-cp .env.example .env.local
+mkcert -install
+npm run dev:certs
 ```
 
-3. Start infrastructure (PostgreSQL + Keycloak):
+This generates TLS certificates in `certificates/` for both `mac-perso-ora.test` and `auth.mac-perso-ora.test`.
+
+3. Copy and configure environment variables:
 ```bash
-cd env-local
-docker-compose up -d
+cp .env.local.example .env.local
+# Edit .env.local with your Keycloak client secret
 ```
 
-4. Run database migrations:
+4. Start infrastructure (PostgreSQL + Keycloak):
 ```bash
-npm run db:generate
+docker compose -f env-local/docker-compose.yml up -d
+```
+
+5. Configure Keycloak:
+   - Open `https://auth.mac-perso-ora.test:8443`
+   - Login with `admin` / `admin`
+   - Create a realm `homeledger`
+   - Create a client `homeledger-client` (OpenID Connect, confidential)
+   - Set valid redirect URIs: `https://mac-perso-ora.test:3000/*`
+   - Copy the client secret to `.env.local` (`AUTH_KEYCLOAK_SECRET`)
+
+6. Run database migrations:
+```bash
 npm run db:migrate
 ```
 
-5. Start development server:
+7. Start development server:
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000)
+Open [https://mac-perso-ora.test:3000](https://mac-perso-ora.test:3000)
 
 ## 🛠 Development Commands
 
 ### Database
-- `npm run db:generate` - Generate SQL migrations
-- `npm run db:migrate` - Apply migrations
-- `npm run db:studio` - Open Drizzle Studio
+- `npm run db:generate` — Generate SQL migrations
+- `npm run db:migrate` — Apply migrations
+- `npm run db:studio` — Open Drizzle Studio
 
 ### Code Quality
-- `npm run format` - Format with Prettier
-- `npm run type-check` - TypeScript validation
-- `npm run lint` - ESLint
+- `npm run format` — Format with Prettier
+- `npm run type-check` — TypeScript validation
+- `npm run lint` — ESLint
 
 ### Testing
-- `npm test` - Run tests
-- `npm run test:coverage` - Coverage report
+- `npm test` — Run tests
+- `npm run test:coverage` — Coverage report
+
+### Certificates
+- `npm run dev:certs` — Regenerate local TLS certificates
 
 ## 📁 Project Structure
 
 ```
 homeledger/
-├── app/              # Next.js App Router
-├── components/       # React components
-│   └── ui/          # shadcn/ui primitives
-├── db/              # Database schema & client
-├── lib/             # Utilities & business logic
-│   ├── actions/     # Server Actions
-│   └── validations/ # Zod schemas
-├── env-local/       # Docker infrastructure
-└── .amazonq/rules/  # AI coding standards
+├── app/[locale]/         # Next.js App Router (i18n)
+│   ├── (public)/         # Public pages (landing)
+│   ├── (app)/app/        # Protected pages (dashboard, accounts, etc.)
+│   └── auth/             # Login page
+├── components/           # React components
+│   ├── ui/               # shadcn/ui primitives
+│   └── app-shell.tsx     # Main layout (sidebar + header)
+├── db/                   # Database schema & migrations
+├── lib/
+│   ├── actions/          # Server Actions (+ safe-* wrappers)
+│   ├── validations/      # Zod schemas
+│   ├── auth.ts           # Auth.js config
+│   └── auth.config.ts    # Edge-compatible auth config
+├── messages/             # i18n translations (en.json, fr.json)
+├── certificates/         # Local TLS certs (gitignored)
+├── env-local/            # Docker Compose (Postgres + Keycloak)
+└── .amazonq/rules/       # AI coding standards
 ```
 
 ## 🔐 Security
 
-- All Server Actions require authentication
+- All Server Actions require authentication via `requireAuth()`
 - Zod validation on all inputs
-- Parameterized database queries
+- Parameterized database queries (Drizzle ORM)
+- HTTPS in local development (mkcert)
 - Environment variables for secrets
 
 ## 📝 License

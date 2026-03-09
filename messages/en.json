@@ -1,49 +1,179 @@
 {
   "common": {
     "appName": "HomeLedger",
-    "welcome": "Welcome",
-    "loading": "Loading...",
-    "error": "Error",
-    "success": "Success",
-    "cancel": "Cancel",
     "save": "Save",
+    "add": "Add",
+    "cancel": "Cancel",
+    "validate": "Validate",
     "delete": "Delete",
     "edit": "Edit",
     "create": "Create",
     "search": "Search",
     "filter": "Filter",
     "export": "Export",
-    "import": "Import"
+    "import": "Import",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "label": "Label",
+    "account": "Account",
+    "requiredField": "This field is required",
+    "dateFormat": "MM/DD/YYYY"
   },
-  "navigation": {
-    "dashboard": "Dashboard",
-    "transactions": "Transactions",
-    "accounts": "Accounts",
-    "budgets": "Budgets",
-    "reports": "Reports",
-    "settings": "Settings"
+  "publicHome": {
+    "title": "HomeLedger",
+    "description": "A small tool to manage the family finances.",
+    "loginButton": "Sign in"
   },
   "auth": {
-    "login": "Log in",
-    "logout": "Log out",
-    "register": "Sign up",
-    "email": "Email",
-    "password": "Password",
-    "forgotPassword": "Forgot password?",
-    "noAccount": "Don't have an account?",
-    "hasAccount": "Already have an account?"
+    "title": "Authentication",
+    "description": "You will be redirected to the HomeLedger sign-in page.",
+    "loginButton": "Sign in with HomeLedger",
+    "finalizing": "Finalizing sign-in...",
+    "checkingSession": "Checking your session...",
+    "logout": "Sign out"
   },
-  "transactions": {
-    "title": "Transactions",
-    "add": "Add Transaction",
-    "edit": "Edit Transaction",
-    "delete": "Delete Transaction",
-    "amount": "Amount",
-    "date": "Date",
-    "category": "Category",
-    "description": "Description",
-    "type": "Type",
-    "income": "Income",
-    "expense": "Expense"
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome {name}.",
+    "placeholder": "Here we will later display accounts, balances and latest operations."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "accounts": "Accounts",
+    "budgets": "Budgets",
+    "categories": "Categories",
+    "tiers": "Third parties",
+    "settings": "Settings",
+    "logout": "Sign out",
+    "languageFr": "French",
+    "languageEn": "English"
+  },
+  "accounts": {
+    "details": {
+      "untitled": "Unnamed account",
+      "lastReconciliationDate": "Last reconciliation",
+      "reconciledBalance": "Reconciled balance",
+      "theoreticalBalance": "Theoretical balance",
+      "budgetsTitle": "Budgets",
+      "budgetsSubtitle": "Budgets linked to this account",
+      "operationsTitle": "Operations"
+    },
+    "actions": {
+      "reconcile": "Reconcile",
+      "editAccount": "Settings"
+    }
+  },
+  "categories": {
+    "title": "Category management",
+    "newCategory": "New category",
+    "searchPlaceholder": "Search categories...",
+    "columns": {
+      "name": "Name",
+      "color": "Color",
+      "icon": "Icon"
+    },
+    "actions": {
+      "deleteConfirmTitle": "Delete category",
+      "deleteConfirmDescription": "Are you sure you want to delete this category?"
+    }
+  },
+  "tiers": {
+    "title": "Third party management",
+    "newTier": "New third party",
+    "searchPlaceholder": "Search third parties...",
+    "columns": {
+      "name": "Name",
+      "description": "Description",
+      "defaultCategory": "Default category"
+    },
+    "actions": {
+      "deleteConfirmTitle": "Delete third party",
+      "deleteConfirmDescription": "Are you sure you want to delete this third party?"
+    }
+  },
+  "budgets": {
+    "title": "Budget management",
+    "monthlyAmount": "Monthly amount",
+    "currentBalance": "Current balance",
+    "lastUpdated": "Last update",
+    "lastUpdatedUnknown": "No date",
+    "columns": {
+      "label": "Label"
+    },
+    "actions": {
+      "deleteConfirmTitle": "Delete",
+      "deleteConfirmDescription": "Delete this budget"
+    }
+  },
+  "operations": {
+    "columns": {
+      "date": "Date",
+      "dateTime": "Date/Time",
+      "label": "Label",
+      "tier": "Third party",
+      "category": "Category",
+      "debit": "Debit",
+      "credit": "Credit",
+      "type": "Type",
+      "balance": "Balance"
+    },
+    "type": {
+      "card": "Card",
+      "transfer": "Transfer",
+      "deposit": "Deposit",
+      "cheque": "Cheque",
+      "direct_debit": "Direct debit",
+      "other": "Other"
+    },
+    "status": {
+      "pending": "Pending",
+      "posted": "Posted",
+      "pointed": "Reconciled",
+      "short": {
+        "pending": "P",
+        "posted": "V",
+        "pointed": "R"
+      },
+      "legend": "P = Pending · V = Validated · R = Reconciled"
+    },
+    "newOperation": "New operation",
+    "actions": {
+      "deleteConfirmTitle": "Delete operation",
+      "deleteConfirmDescription": "Are you sure you want to delete this operation?"
+    }
+  },
+  "reconciliation": {
+    "enterNewBalanceTitle": "Reconcile",
+    "enterNewBalanceMessage": "What is the account balance after reconciliation?",
+    "newBalancePlaceholder": "New reconciled balance",
+    "reconciliationDateLabel": "Reconciliation date",
+    "newBalanceLabel": "New balance",
+    "reconciledSum": "Reconciled operations",
+    "leftToReconcile": "Left to reconcile"
+  },
+  "import": {
+    "title": "Import operations",
+    "importButton": "Import",
+    "dropzone": {
+      "text": "Click or drop a file here",
+      "hint": "Accepted formats: Excel (.xlsx, .xls) or CSV (.csv)"
+    },
+    "mapping": {
+      "ignore": "Ignore",
+      "date": "Date",
+      "description": "Description",
+      "credit": "Credit",
+      "debit": "Debit",
+      "signed": "Signed amount"
+    }
+  },
+  "errors": {
+    "unexpectedServerResponse": "An unexpected error occurred"
+  },
+  "selectIcon": {
+    "title": "Choose an icon",
+    "placeholder": "Icon",
+    "searchPlaceholder": "Search for an icon..."
   }
 }

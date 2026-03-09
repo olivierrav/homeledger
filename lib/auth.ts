@@ -39,7 +39,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       return true;
     },
 
-    async jwt({ token, profile, trigger }) {
+    async jwt({ token, profile }) {
       // On sign-in, resolve the internal user ID
       if (profile?.sub) {
         token.keycloakSub = profile.sub;

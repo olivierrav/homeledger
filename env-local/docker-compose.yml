@@ -24,15 +24,12 @@ services:
             KEYCLOAK_ADMIN: admin
             KEYCLOAK_ADMIN_PASSWORD: admin
             KC_HOSTNAME: "keycloak.test"
-            KC_HOSTNAME_STRICT: "true"
-            KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/certs/keycloak.test.pem
-            KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/keycloak.test-key.pem
-            KC_HTTP_ENABLED: "false"
+            KC_HOSTNAME_STRICT: "false"
+            KC_HTTP_ENABLED: "true"
         ports:
-            - "8443:8443"
+            - "8080:8080"
         volumes:
             - ./data/keycloak:/opt/keycloak/data
-            - ../certificates:/opt/keycloak/certs:ro
         depends_on:
             - postgres
         restart: unless-stopped

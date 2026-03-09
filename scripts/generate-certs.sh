@@ -5,7 +5,7 @@
 set -e
 
 DOMAIN="mac-perso-ora.test"
-AUTH_DOMAIN="auth.mac-perso-ora.test"
+AUTH_DOMAIN="keycloak.test"
 CERT_DIR="certificates"
 
 mkdir -p "$CERT_DIR"

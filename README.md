@@ -28,13 +28,13 @@ The project uses custom local domains. Add these to your `/etc/hosts`:
 
 ```
 127.0.0.1   mac-perso-ora.test
-127.0.0.1   auth.mac-perso-ora.test
+127.0.0.1   keycloak.test
 ```
 
 | Service    | URL                                    |
 |------------|----------------------------------------|
 | App        | `https://mac-perso-ora.test:3000`      |
-| Keycloak   | `https://auth.mac-perso-ora.test:8443` |
+| Keycloak   | `https://keycloak.test:8443`           |
 | PostgreSQL | `localhost:5432`                       |
 
 ### Installation
@@ -50,7 +50,7 @@ mkcert -install
 npm run dev:certs
 ```
 
-This generates TLS certificates in `certificates/` for both `mac-perso-ora.test` and `auth.mac-perso-ora.test`.
+This generates TLS certificates in `certificates/` for both `mac-perso-ora.test` and `keycloak.test`.
 
 3. Copy and configure environment variables:
 ```bash
@@ -64,7 +64,7 @@ docker compose -f env-local/docker-compose.yml up -d
 ```
 
 5. Configure Keycloak:
-   - Open `https://auth.mac-perso-ora.test:8443`
+   - Open `https://keycloak.test:8443`
    - Login with `admin` / `admin`
    - Create a realm `homeledger`
    - Create a client `homeledger-client` (OpenID Connect, confidential)

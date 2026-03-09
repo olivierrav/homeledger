@@ -23,10 +23,10 @@ services:
         environment:
             KEYCLOAK_ADMIN: admin
             KEYCLOAK_ADMIN_PASSWORD: admin
-            KC_HOSTNAME: "auth.mac-perso-ora.test"
+            KC_HOSTNAME: "keycloak.test"
             KC_HOSTNAME_STRICT: "true"
-            KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/certs/auth.mac-perso-ora.test.pem
-            KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/auth.mac-perso-ora.test-key.pem
+            KC_HTTPS_CERTIFICATE_FILE: /opt/keycloak/certs/keycloak.test.pem
+            KC_HTTPS_CERTIFICATE_KEY_FILE: /opt/keycloak/certs/keycloak.test-key.pem
             KC_HTTP_ENABLED: "false"
         ports:
             - "8443:8443"
